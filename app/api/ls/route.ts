@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 
 export async function POST() {
-  const owner = 'Nishantrde'; // replace with the repo owner
-  const repo = 'Nishantrde.github.io';   // replace with the repo name
-  const branch = 'main';      // or your branch name
+  const owner = 'Nishantrde';
+  const repo = 'Nishantrde.github.io';
+  const branch = 'main';
   const token = process.env.GITHUB_TOKEN; // store your token in .env.local
 
   const url = `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`;
