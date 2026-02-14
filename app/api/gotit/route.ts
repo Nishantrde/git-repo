@@ -7,6 +7,7 @@ export async function GET() {
   response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   return response;
 }
+
 export async function POST() {
   const owner = 'Nishantrde'; // replace with the repo owner
   const repo = 'Nishantrde.github.io';   // replace with the repo name
@@ -23,9 +24,26 @@ export async function POST() {
   });
 
   if (!res.ok) {
-    return NextResponse.json({ error: 'Failed to fetch repo structure' }, { status: res.status });
+    const errorResponse = NextResponse.json({ error: 'Failed to fetch repo structure' }, { status: res.status });
+    errorResponse.headers.set('Access-Control-Allow-Origin', '*');
+    errorResponse.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    errorResponse.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    return errorResponse;
   }
 
   const data = await res.json();
-  return NextResponse.json({ tree: data.tree });
+  const response = NextResponse.json({ tree: data.tree });
+  response.headers.set('Access-Control-Allow-Origin', '*');
+  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  return response;
+}
+
+// Handle preflight OPTIONS request
+export function OPTIONS() {
+  const response = new NextResponse(null, { status: 204 });
+  response.headers.set('Access-Control-Allow-Origin', '*');
+  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  return response;
 }
