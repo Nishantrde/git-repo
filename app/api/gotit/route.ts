@@ -1,7 +1,11 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  return NextResponse.json({ message: 'got it!!' });
+  const response = NextResponse.json({ message: 'got it!!' });
+  response.headers.set('Access-Control-Allow-Origin', '*');
+  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  return response;
 }
 export async function POST() {
   const owner = 'Nishantrde'; // replace with the repo owner
