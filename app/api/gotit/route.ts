@@ -4,8 +4,8 @@ export async function GET() {
   return NextResponse.json({ message: 'got it!!' });
 }
 export async function POST() {
-  const owner = 'OWNER_NAME'; // replace with the repo owner
-  const repo = 'REPO_NAME';   // replace with the repo name
+  const owner = 'Nishantrde'; // replace with the repo owner
+  const repo = 'Nishantrde.github.io';   // replace with the repo name
   const branch = 'main';      // or your branch name
   const token = process.env.GITHUB_TOKEN; // store your token in .env.local
 
