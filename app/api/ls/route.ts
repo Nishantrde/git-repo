@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-export async function GET() {
+export async function POST() {
   const owner = 'Nishantrde'; // replace with the repo owner
   const repo = 'Nishantrde.github.io';   // replace with the repo name
   const branch = 'main';      // or your branch name
