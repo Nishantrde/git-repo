@@ -31,7 +31,6 @@ export async function POST() {
   return response;
 }
 
-// Handle preflight OPTIONS request
 export function OPTIONS() {
   const response = new NextResponse(null, { status: 204 });
   response.headers.set('Access-Control-Allow-Origin', '*');
