@@ -24,7 +24,7 @@ export async function GET(request: Request) {
   });
 
   if (!res.ok) {
-    const errorResponse = NextResponse.json({ error: 'Failed to fetch file content' }, { status: res.status });
+    const errorResponse = NextResponse.json({ error: 'cat: yes.html: No such file or directory' }, { status: res.status });
     errorResponse.headers.set('Access-Control-Allow-Origin', '*');
     errorResponse.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     errorResponse.headers.set('Access-Control-Allow-Headers', 'Content-Type, cmd');
