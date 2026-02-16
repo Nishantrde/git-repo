@@ -4,7 +4,7 @@ export async function GET(request: Request) {
   const owner = 'Nishantrde';
   const repo = 'Nishantrde.github.io';
   const token = process.env.GITHUB_TOKEN;
-  const filePath = request.headers.get('cmd'); // file path from header
+  const filePath = request.headers.get('cmd');
 
   if (!filePath) {
     const errorResponse = NextResponse.json({ error: 'Missing file path in cmd header' }, { status: 400 });
