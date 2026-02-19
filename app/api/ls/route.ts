@@ -4,8 +4,7 @@ export async function POST() {
   const owner = 'Nishantrde';
   const repo = 'Nishantrde.github.io';
   const branch = 'main';
-  const token = process.env.GITHUB_TOKEN; // store your token in .env.local
-
+  const token = process.env.GITHUB_TOKEN; 
   const url = `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`;
 
   const res = await fetch(url, {
